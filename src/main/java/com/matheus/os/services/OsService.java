@@ -13,8 +13,6 @@ import com.matheus.os.Repositories.OSRepository;
 import com.matheus.os.domain.Cliente;
 import com.matheus.os.domain.OS;
 import com.matheus.os.domain.Tecnico;
-import com.matheus.os.domain.enuns.Prioridade;
-import com.matheus.os.domain.enuns.Status;
 import com.matheus.os.dtos.OSDTO;
 import com.matheus.os.services.exception.ObjectNotFoundException;
 
@@ -53,8 +51,8 @@ public class OsService {
 		OS newObj = new OS();
 		newObj.setId(obj.getId());
 		newObj.setObervacoes(obj.getObervacoes());
-		newObj.setPrioridade(Prioridade.toEnum(obj.getPrioridade()));
-		newObj.setStatus(Status.toEnum(obj.getStatus()));
+		newObj.setPrioridade(obj.getPrioridade());
+		newObj.setStatus(obj.getStatus());
 		
 		Tecnico tec = tecnicoService.findById(obj.getTecnico()); 
 		Cliente cli = clienteService.findById(obj.getCliente());
